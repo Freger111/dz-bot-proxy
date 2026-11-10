@@ -166,7 +166,7 @@ async def chat(inp: ChatIn, request: Request) -> dict:
             continue
 
         if r.status_code != 200:
-            last_error = f"{model}: HTTP {r.status_code}"
+            last_error = f"{model}: HTTP {r.status_code} {r.text[:300]}"
             continue
 
         data = r.json()
